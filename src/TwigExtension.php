@@ -6,6 +6,7 @@ use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
 use Xylemical\Code\FullyQualifiedName;
+use Xylemical\Code\Util\Indenter;
 
 /**
  * Provides functionality to simplify twig templating for code structures.
@@ -115,22 +116,7 @@ class TwigExtension extends AbstractExtension {
    *   The indented text.
    */
   public function doIndent(string $text, int $amount = 2): string {
-    $result = '';
-    $indent = str_repeat(' ', $amount);
-
-    // Process each of the lines using all different line endings.
-    $lines = preg_split('/(\r\n|\n|\r)/', $text, -1, PREG_SPLIT_DELIM_CAPTURE);
-    foreach ($lines as $index => $line) {
-      if (!preg_match('/^(\r\n|\n|\r)$/', $line)) {
-        if (trim($line)) {
-          $result .= ($index ? $indent : '') . $line;
-        }
-      }
-      else {
-        $result .= $line;
-      }
-    }
-    return $result;
+    return Indenter::defix(Indenter::indent($text, $amount), $amount);
   }
 
   /**

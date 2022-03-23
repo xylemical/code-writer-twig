@@ -249,16 +249,16 @@
         },
         {
             "name": "xylemical/code",
-            "version": "v1.1.4",
+            "version": "v1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/xylemical/code.git",
-                "reference": "5e354047be59cdce97b6e0ff2a2de4a9bf340f34"
+                "reference": "7943d7990a778263d1d4a8354793103cff20d9a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/xylemical/code/zipball/5e354047be59cdce97b6e0ff2a2de4a9bf340f34",
-                "reference": "5e354047be59cdce97b6e0ff2a2de4a9bf340f34",
+                "url": "https://api.github.com/repos/xylemical/code/zipball/7943d7990a778263d1d4a8354793103cff20d9a7",
+                "reference": "7943d7990a778263d1d4a8354793103cff20d9a7",
                 "shasum": ""
             },
             "require": {
@@ -291,9 +291,9 @@
             ],
             "support": {
                 "issues": "https://github.com/xylemical/code/issues",
-                "source": "https://github.com/xylemical/code/tree/v1.1.4"
+                "source": "https://github.com/xylemical/code/tree/v1.1.5"
             },
-            "time": "2022-03-23T05:40:38+00:00"
+            "time": "2022-03-23T07:16:52+00:00"
         }
     ],
     "packages-dev": [
