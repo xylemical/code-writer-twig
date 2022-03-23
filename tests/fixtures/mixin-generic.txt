@@ -1,0 +1,7 @@
+Test\Code:
+    name:
+        namespace: Test
+        alias: Code
+        name: Code
+        fqn: Test\Code
+        ns: \

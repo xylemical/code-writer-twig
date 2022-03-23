@@ -1,0 +1,10 @@
+{% set value = constant.getValue() %}
+{% set documentation = constant.getDocumentation() %}
+{{ constant.getName() }}:
+{% if not documentation.isEmpty() %}
+    documentation: {{ include('documentation.twig', { 'documentation': documentation }, with_context = false) }}
+{% endif %}
+    visibility: {{ include('visibility.twig', { 'visibility': constant.getVisibility() }, with_context = false) }}
+{% if not value.isEmpty() %}
+    value: {{ include('expression.twig', { 'expression': value }, with_context = false) }}
+{% endif -%}

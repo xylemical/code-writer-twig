@@ -1,0 +1,20 @@
+method:
+    documentation: Test
+    visibility: protected
+    type:
+        namespace: Test
+        alias: Shorthand
+        name: Code
+        fqn: Test\Code
+        ns: \
+    value: tank
+    parameters:
+        abc:
+            documentation: testing
+            type:
+                namespace: Test
+                alias: Shorthand
+                name: Code
+                fqn: Test\Code
+                ns: \
+            value: done

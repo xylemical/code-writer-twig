@@ -1,0 +1,22 @@
+{% set documentation = contract.getDocumentation() %}
+{% set name = contract.getFullyQualifiedName() %}
+{% set constants = contract.getConstants() %}
+{% set methods = contract.getMethods() %}
+{{ contract.getName() }}:
+{% if not documentation.isEmpty() %}
+    documentation: {{ include('documentation.twig', { 'documentation': documentation }, with_context = false) }}
+{% endif %}
+    name:
+        {{ include('type.twig', { 'type': name }, with_context = false) | indent(8) }}
+{%- if constants | length > 0 %}
+    constants:
+{% for constant in constants %}
+        {{ include('constant.twig', { 'constant': constant }, with_context = false) | indent(8) }}
+{%- endfor %}
+{% endif %}
+{% if methods | length > 0 %}
+    methods:
+{% for method in methods %}
+        {{ include('method.twig', { 'method': method }, with_context = false) | indent(8) }}
+{%- endfor %}
+{% endif %}

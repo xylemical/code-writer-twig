@@ -1,0 +1,14 @@
+{% set value = parameter.getValue() %}
+{% set documentation = parameter.getDocumentation() %}
+{% set type = parameter.getType() %}
+{{ parameter.getName() }}:
+{% if not documentation.isEmpty() %}
+    documentation: {{ include('documentation.twig', { 'documentation': documentation }, with_context = false) }}
+{% endif -%}
+{% if type.getName() %}
+    type:
+        {{ include('type.twig', { 'type': type }, with_context = false) | indent(8) }}
+{%- endif -%}
+{% if not value.isEmpty() %}
+    value: {{ include('expression.twig', { 'expression': value }, with_context = false) }}
+{% endif -%}

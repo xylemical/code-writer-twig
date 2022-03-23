@@ -1,0 +1,10 @@
+property:
+    documentation: Test
+    visibility: protected
+    type:
+        namespace: Test
+        alias: Shorthand
+        name: Code
+        fqn: Test\Code
+        ns: \
+    value: tank

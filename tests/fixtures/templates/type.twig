@@ -1,0 +1,7 @@
+{%- if type %}
+namespace: {{ type | namespace }}
+alias: {{ type | alias }}
+name: {{ type | name }}
+fqn: {{ type | fqn }}
+ns: {{ ns() }}
+{% endif -%}

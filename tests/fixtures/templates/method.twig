@@ -1,0 +1,22 @@
+{% set value = method.getValue() %}
+{% set documentation = method.getDocumentation() %}
+{% set type = method.getType() %}
+{% set parameters = method.getParameters() %}
+{{ method.getName() }}:
+{% if not documentation.isEmpty() %}
+    documentation: {{ include('documentation.twig', { 'documentation': documentation }, with_context = false) }}
+{% endif %}
+    visibility: {{ include('visibility.twig', { 'visibility': method.getVisibility() }, with_context = false) }}
+{% if type.getName() %}
+    type:
+        {{ include('type.twig', { 'type': type }, with_context = false) | indent(8) }}
+{%- endif -%}
+{% if not value.isEmpty() %}
+    value: {{ include('expression.twig', { 'expression': value }, with_context = false) }}
+{% endif -%}
+{% if parameters | length > 0 %}
+    parameters:
+{% for parameter in parameters %}
+        {{ include('parameter.twig', { 'parameter': parameter }, with_context = false) | indent(8) }}
+{%- endfor -%}
+{% endif -%}

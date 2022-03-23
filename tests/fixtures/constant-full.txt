@@ -1,0 +1,4 @@
+constant:
+    documentation: testing
+    visibility: protected
+    value: tank

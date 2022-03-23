@@ -1,0 +1,43 @@
+{% set documentation = structure.getDocumentation() %}
+{% set name = structure.getFullyQualifiedName() %}
+{% set constants = structure.getConstants() %}
+{% set properties = structure.getProperties() %}
+{% set methods = structure.getMethods() %}
+{% set mixins = structure.getMixins() %}
+{% set contracts = structure.getContracts() %}
+{{ structure.getName() }}:
+{% if not documentation.isEmpty() %}
+    documentation: {{ include('documentation.twig', { 'documentation': documentation }, with_context = false) }}
+{% endif %}
+    name:
+        {{ include('type.twig', { 'type': name }, with_context = false) | indent(8) }}
+{%- if constants | length > 0 %}
+    constants:
+{% for constant in constants %}
+        {{ include('constant.twig', { 'constant': constant }, with_context = false) | indent(8) }}
+{%- endfor %}
+{% endif %}
+{% if methods | length > 0 %}
+    methods:
+{% for method in methods %}
+        {{ include('method.twig', { 'method': method }, with_context = false) | indent(8) }}
+{%- endfor %}
+{% endif %}
+{% if properties | length > 0 %}
+    properties:
+{% for property in properties %}
+        {{ include('property.twig', { 'property': property }, with_context = false) | indent(8) }}
+{%- endfor %}
+{% endif %}
+{% if mixins | length > 0 %}
+    mixins:
+{% for mixin in mixins %}
+        - {{ include('type.twig', { 'type': mixin.getFullyQualifiedName() }, with_context = false) | indent(10) }}
+{%- endfor %}
+{% endif %}
+{% if contracts | length > 0 %}
+    contracts:
+{% for contract in contracts %}
+        - {{ include('type.twig', { 'type': contract.getFullyQualifiedName() }, with_context = false) | indent(10) }}
+{%- endfor %}
+{% endif %}
