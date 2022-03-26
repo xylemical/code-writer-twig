@@ -21,7 +21,7 @@
   },
   "require": {
     "php": ">7.4",
-    "xylemical/code": "^1.0",
+    "xylemical/code": "dev-master",
     "twig/twig": "^3.3"
   },
   "require-dev": {

@@ -5,6 +5,16 @@ namespace Xylemical\Code\Writer\Twig;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
+use Twig\TwigTest;
+use Xylemical\Code\Definition\Constant;
+use Xylemical\Code\Definition\Contract;
+use Xylemical\Code\Definition\File;
+use Xylemical\Code\Definition\Import;
+use Xylemical\Code\Definition\Method;
+use Xylemical\Code\Definition\Mixin;
+use Xylemical\Code\Definition\Parameter;
+use Xylemical\Code\Definition\Property;
+use Xylemical\Code\Definition\Structure;
 use Xylemical\Code\FullyQualifiedName;
 use Xylemical\Code\Util\Indenter;
 
@@ -49,6 +59,41 @@ class TwigExtension extends AbstractExtension {
       new TwigFilter('fqn', [$this, 'doFullyQualifiedName']),
       new TwigFilter('name', [$this, 'doName']),
       new TwigFilter('indent', [$this, 'doIndent']),
+    ];
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getTests() {
+    return [
+      new TwigTest('constant', function ($item) {
+        return $item instanceof Constant;
+      }),
+      new TwigTest('contract', function ($item) {
+        return $item instanceof Contract;
+      }),
+      new TwigTest('file', function ($item) {
+        return $item instanceof File;
+      }),
+      new TwigTest('import', function ($item) {
+        return $item instanceof Import;
+      }),
+      new TwigTest('method', function ($item) {
+        return $item instanceof Method;
+      }),
+      new TwigTest('mixin', function ($item) {
+        return $item instanceof Mixin;
+      }),
+      new TwigTest('parameter', function ($item) {
+        return $item instanceof Parameter;
+      }),
+      new TwigTest('property', function ($item) {
+        return $item instanceof Property;
+      }),
+      new TwigTest('structure', function ($item) {
+        return $item instanceof Structure;
+      }),
     ];
   }
 
