@@ -11,6 +11,10 @@
 {% endif %}
     name:
         {{ include('type.twig', { 'type': name }, with_context = false) | indent(8) }}
+{%- if structure.getParent() %}
+    parent:
+        {{ include('type.twig', { 'type': structure.getParent() }, with_context = false) | indent(8) }}
+{%- endif %}
 {%- if constants | length > 0 %}
     constants:
 {% for constant in constants %}

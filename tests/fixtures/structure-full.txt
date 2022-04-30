@@ -5,6 +5,11 @@ Test\Code:
         alias: Shorthand
         name: Code
         fqn: Test\Code
+    parent:
+        namespace: Test
+        alias: Bar
+        name: Bar
+        fqn: Test\Bar
     constants:
         constant:
             documentation: testing
