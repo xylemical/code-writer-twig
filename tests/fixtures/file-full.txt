@@ -1,0 +1,135 @@
+filename: test
+structures:
+    Test\Code:
+        documentation: test
+        name:
+            namespace: Test
+            alias: Shorthand
+            name: Code
+            fqn: Test\Code
+        constants:
+            constant:
+                documentation: testing
+                visibility: protected
+                value: tank
+        methods:
+            method:
+                documentation: Test
+                visibility: protected
+                type:
+                    namespace: Test
+                    alias: Shorthand
+                    name: Code
+                    fqn: Test\Code
+                value: tank
+                parameters:
+                    abc:
+                        documentation: testing
+                        type:
+                            namespace: Test
+                            alias: Shorthand
+                            name: Code
+                            fqn: Test\Code
+                        value: done
+        properties:
+            property:
+                documentation: Test
+                visibility: protected
+                type:
+                    namespace: Test
+                    alias: Shorthand
+                    name: Code
+                    fqn: Test\Code
+                value: tank
+        mixins:
+            - namespace: Test
+              alias: Shorthand
+              name: Code
+              fqn: Test\Code
+    Test\Code:
+        documentation: test
+        name:
+            namespace: Test
+            alias: Shorthand
+            name: Code
+            fqn: Test\Code
+        parent:
+            namespace: Test
+            alias: Bar
+            name: Bar
+            fqn: Test\Bar
+        constants:
+            constant:
+                documentation: testing
+                visibility: protected
+                value: tank
+        methods:
+            method:
+                documentation: Test
+                visibility: protected
+                type:
+                    namespace: Test
+                    alias: Shorthand
+                    name: Code
+                    fqn: Test\Code
+                value: tank
+                parameters:
+                    abc:
+                        documentation: testing
+                        type:
+                            namespace: Test
+                            alias: Shorthand
+                            name: Code
+                            fqn: Test\Code
+                        value: done
+        properties:
+            property:
+                documentation: Test
+                visibility: protected
+                type:
+                    namespace: Test
+                    alias: Shorthand
+                    name: Code
+                    fqn: Test\Code
+                value: tank
+        mixins:
+            - namespace: Test
+              alias: Shorthand
+              name: Code
+              fqn: Test\Code
+        contracts:
+            - namespace: Test
+              alias: Shorthand
+              name: Code
+              fqn: Test\Code
+    Test\Code:
+        documentation: test
+        name:
+            namespace: Test
+            alias: Shorthand
+            name: Code
+            fqn: Test\Code
+        constants:
+            constant:
+                documentation: testing
+                visibility: protected
+                value: tank
+        methods:
+            method:
+                documentation: Test
+                visibility: protected
+                type:
+                    namespace: Test
+                    alias: Shorthand
+                    name: Code
+                    fqn: Test\Code
+                value: tank
+                parameters:
+                    abc:
+                        documentation: testing
+                        type:
+                            namespace: Test
+                            alias: Shorthand
+                            name: Code
+                            fqn: Test\Code
+                        value: done

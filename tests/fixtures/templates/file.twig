@@ -1,0 +1,13 @@
+filename: {{ file.getFilename() }}
+{% if file.getStructures() | length > 0 %}
+structures:
+{% for structure in file.getStructures %}
+{% if structure is mixin %}
+    {{ include('mixin.twig', { 'mixin': structure }, with_context = false) | indent(4) }}
+{%- elseif structure is structure %}
+    {{ include('structure.twig', { 'structure': structure }, with_context = false) | indent(4) }}
+{%- elseif structure is contract %}
+    {{ include('contract.twig', { 'contract': structure }, with_context = false) | indent(4) }}
+{%- endif %}
+{%- endfor %}
+{% endif %}
