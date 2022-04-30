@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Xylemical\Code\Writer\Twig;
 
 use Twig\Extension\AbstractExtension;
@@ -96,7 +98,7 @@ class TwigExtension extends AbstractExtension {
    *   The namespace.
    */
   public function doNamespace(FullyQualifiedName $name): string {
-    return implode($name->getLanguage()->getSeparator(), $name->getNamespace());
+    return $name->getNamespace();
   }
 
   /**
