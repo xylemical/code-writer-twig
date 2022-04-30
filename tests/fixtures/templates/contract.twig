@@ -1,7 +1,7 @@
 {% set documentation = contract.getDocumentation() %}
 {% set name = contract.getFullyQualifiedName() %}
-{% set constants = contract.getConstants() %}
-{% set methods = contract.getMethods() %}
+{% set constants = contract.getElements() | constants %}
+{% set methods = contract.getElements() | methods %}
 {{ contract.getName() }}:
 {% if not documentation.isEmpty() %}
     documentation: {{ include('documentation.twig', { 'documentation': documentation }, with_context = false) }}

@@ -10,6 +10,6 @@
     type:
         {{ include('type.twig', { 'type': type }, with_context = false) | indent(8) }}
 {%- endif %}
-{% if not value.isEmpty() %}
+{% if value and not value.isEmpty() %}
     value: {{ include('expression.twig', { 'expression': value }, with_context = false) }}
 {% endif %}

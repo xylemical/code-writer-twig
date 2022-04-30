@@ -1,8 +1,8 @@
 {% set documentation = structure.getDocumentation() %}
 {% set name = structure.getFullyQualifiedName() %}
-{% set constants = structure.getConstants() %}
-{% set properties = structure.getProperties() %}
-{% set methods = structure.getMethods() %}
+{% set constants = structure.getElements() | constants %}
+{% set properties = structure.getElements() | properties %}
+{% set methods = structure.getElements() | methods %}
 {% set mixins = structure.getMixins() %}
 {% set contracts = structure.getContracts() %}
 {{ structure.getName() }}:
@@ -32,12 +32,12 @@
 {% if mixins | length > 0 %}
     mixins:
 {% for mixin in mixins %}
-        - {{ include('type.twig', { 'type': mixin.getFullyQualifiedName() }, with_context = false) | indent(10) }}
+        - {{ include('type.twig', { 'type': mixin }, with_context = false) | indent(10) }}
 {%- endfor %}
 {% endif %}
 {% if contracts | length > 0 %}
     contracts:
 {% for contract in contracts %}
-        - {{ include('type.twig', { 'type': contract.getFullyQualifiedName() }, with_context = false) | indent(10) }}
+        - {{ include('type.twig', { 'type': contract }, with_context = false) | indent(10) }}
 {%- endfor %}
 {% endif %}

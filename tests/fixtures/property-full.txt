@@ -6,5 +6,4 @@ property:
         alias: Shorthand
         name: Code
         fqn: Test\Code
-        ns: \
     value: tank

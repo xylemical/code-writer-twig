@@ -6,7 +6,6 @@ method:
         alias: Shorthand
         name: Code
         fqn: Test\Code
-        ns: \
     value: tank
     parameters:
         abc:
@@ -16,5 +15,4 @@ method:
                 alias: Shorthand
                 name: Code
                 fqn: Test\Code
-                ns: \
             value: done

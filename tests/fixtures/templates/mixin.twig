@@ -1,8 +1,8 @@
 {% set documentation = mixin.getDocumentation() %}
 {% set name = mixin.getFullyQualifiedName() %}
-{% set constants = mixin.getConstants() %}
-{% set properties = mixin.getProperties() %}
-{% set methods = mixin.getMethods() %}
+{% set constants = mixin.getElements() | constants %}
+{% set properties = mixin.getElements() | properties %}
+{% set methods = mixin.getElements() | methods %}
 {% set mixins = mixin.getMixins() %}
 {{ mixin.getName() }}:
 {% if not documentation.isEmpty() %}
@@ -31,6 +31,6 @@
 {% if mixins | length > 0 %}
     mixins:
 {% for mixin in mixins %}
-        - {{ include('type.twig', { 'type': mixin.getFullyQualifiedName() }, with_context = false) | indent(10) }}
+        - {{ include('type.twig', { 'type': mixin }, with_context = false) | indent(10) }}
 {%- endfor %}
 {% endif %}

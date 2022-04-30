@@ -2,10 +2,9 @@ Test\Code:
     documentation: test
     name:
         namespace: Test
-        alias: Code
+        alias: Shorthand
         name: Code
         fqn: Test\Code
-        ns: \
     constants:
         constant:
             documentation: testing
@@ -20,7 +19,6 @@ Test\Code:
                 alias: Shorthand
                 name: Code
                 fqn: Test\Code
-                ns: \
             value: tank
             parameters:
                 abc:
@@ -30,7 +28,6 @@ Test\Code:
                         alias: Shorthand
                         name: Code
                         fqn: Test\Code
-                        ns: \
                     value: done
     properties:
         property:
@@ -41,11 +38,9 @@ Test\Code:
                 alias: Shorthand
                 name: Code
                 fqn: Test\Code
-                ns: \
             value: tank
     mixins:
         - namespace: Test
-          alias: Code
+          alias: Shorthand
           name: Code
           fqn: Test\Code
-          ns: \

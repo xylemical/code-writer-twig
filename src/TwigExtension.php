@@ -4,12 +4,10 @@ namespace Xylemical\Code\Writer\Twig;
 
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
-use Twig\TwigFunction;
 use Twig\TwigTest;
 use Xylemical\Code\Definition\Constant;
 use Xylemical\Code\Definition\Contract;
 use Xylemical\Code\Definition\File;
-use Xylemical\Code\Definition\Import;
 use Xylemical\Code\Definition\Method;
 use Xylemical\Code\Definition\Mixin;
 use Xylemical\Code\Definition\Parameter;
@@ -43,15 +41,6 @@ class TwigExtension extends AbstractExtension {
   /**
    * {@inheritdoc}
    */
-  public function getFunctions() {
-    return [
-      new TwigFunction('ns', [$this, 'doNs']),
-    ];
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function getFilters() {
     return [
       new TwigFilter('namespace', [$this, 'doNamespace']),
@@ -59,6 +48,9 @@ class TwigExtension extends AbstractExtension {
       new TwigFilter('fqn', [$this, 'doFullyQualifiedName']),
       new TwigFilter('name', [$this, 'doName']),
       new TwigFilter('indent', [$this, 'doIndent']),
+      new TwigFilter('constants', [$this, 'doConstants']),
+      new TwigFilter('properties', [$this, 'doProperties']),
+      new TwigFilter('methods', [$this, 'doMethods']),
     ];
   }
 
@@ -75,9 +67,6 @@ class TwigExtension extends AbstractExtension {
       }),
       new TwigTest('file', function ($item) {
         return $item instanceof File;
-      }),
-      new TwigTest('import', function ($item) {
-        return $item instanceof Import;
       }),
       new TwigTest('method', function ($item) {
         return $item instanceof Method;
@@ -107,7 +96,7 @@ class TwigExtension extends AbstractExtension {
    *   The namespace.
    */
   public function doNamespace(FullyQualifiedName $name): string {
-    return implode(FullyQualifiedName::getSeparator(), $name->getNamespace());
+    return implode($name->getLanguage()->getSeparator(), $name->getNamespace());
   }
 
   /**
@@ -133,7 +122,7 @@ class TwigExtension extends AbstractExtension {
    *   The fully qualified name.
    */
   public function doFullyQualifiedName(FullyQualifiedName $name): string {
-    return implode(FullyQualifiedName::getSeparator(), $name->getFullName());
+    return (string) $name;
   }
 
   /**
@@ -165,13 +154,48 @@ class TwigExtension extends AbstractExtension {
   }
 
   /**
-   * Get the namespace separator.
+   * Filter out the constants.
    *
-   * @return string
-   *   The separator.
+   * @param \Xylemical\Code\Definition\ElementInterface[] $elements
+   *   The elements.
+   *
+   * @return \Xylemical\Code\Definition\Constant[]
+   *   The constants.
    */
-  public function doNs(): string {
-    return FullyQualifiedName::getSeparator();
+  public function doConstants(array $elements): array {
+    return array_filter($elements, function ($element) {
+      return $element instanceof Constant;
+    });
+  }
+
+  /**
+   * Filter out the properties.
+   *
+   * @param \Xylemical\Code\Definition\ElementInterface[] $elements
+   *   The elements.
+   *
+   * @return \Xylemical\Code\Definition\Property[]
+   *   The properties.
+   */
+  public function doProperties(array $elements): array {
+    return array_filter($elements, function ($element) {
+      return $element instanceof Property;
+    });
+  }
+
+  /**
+   * Filter out the methods.
+   *
+   * @param \Xylemical\Code\Definition\ElementInterface[] $elements
+   *   The elements.
+   *
+   * @return \Xylemical\Code\Definition\Method[]
+   *   The methods.
+   */
+  public function doMethods(array $elements): array {
+    return array_filter($elements, function ($element) {
+      return $element instanceof Method;
+    });
   }
 
 }

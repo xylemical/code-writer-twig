@@ -4,4 +4,3 @@ Test\Code:
         alias: Code
         name: Code
         fqn: Test\Code
-        ns: \
