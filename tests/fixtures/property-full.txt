@@ -2,8 +2,8 @@ property:
     documentation: Test
     visibility: protected
     type:
-        namespace: Test
-        alias: Shorthand
-        name: Code
-        fqn: Test\Code
+        namespace: Code
+        alias: Bar
+        name: Bar
+        fqn: Code\Bar
     value: tank

@@ -18,28 +18,28 @@ structures:
                 visibility: protected
                 type:
                     namespace: Test
-                    alias: Shorthand
-                    name: Code
-                    fqn: Test\Code
+                    alias: Bar
+                    name: Bar
+                    fqn: Test\Bar
                 value: tank
                 parameters:
                     abc:
                         documentation: testing
                         type:
-                            namespace: Test
-                            alias: Shorthand
-                            name: Code
-                            fqn: Test\Code
+                            namespace: Code
+                            alias: Table
+                            name: Table
+                            fqn: Code\Table
                         value: done
         properties:
             property:
                 documentation: Test
                 visibility: protected
                 type:
-                    namespace: Test
-                    alias: Shorthand
-                    name: Code
-                    fqn: Test\Code
+                    namespace: Code
+                    alias: Bar
+                    name: Bar
+                    fqn: Code\Bar
                 value: tank
         mixins:
             - namespace: Test
@@ -69,39 +69,38 @@ structures:
                 visibility: protected
                 type:
                     namespace: Test
-                    alias: Shorthand
-                    name: Code
-                    fqn: Test\Code
+                    alias: Bar
+                    name: Bar
+                    fqn: Test\Bar
                 value: tank
                 parameters:
                     abc:
                         documentation: testing
                         type:
-                            namespace: Test
-                            alias: Shorthand
-                            name: Code
-                            fqn: Test\Code
+                            namespace: Code
+                            alias: Table
+                            name: Table
+                            fqn: Code\Table
                         value: done
         properties:
             property:
                 documentation: Test
                 visibility: protected
                 type:
-                    namespace: Test
-                    alias: Shorthand
-                    name: Code
-                    fqn: Test\Code
+                    namespace: Code
+                    alias: Bar
+                    name: Bar
+                    fqn: Code\Bar
                 value: tank
         mixins:
             - namespace: Test
-              alias: Shorthand
-              name: Code
-              fqn: Test\Code
+              alias: Faz
+              name: Faz
+              fqn: Test\Faz
         contracts:
-            - namespace: Test
-              alias: Shorthand
-              name: Code
-              fqn: Test\Code
+            - alias: Faz
+              name: Faz
+              fqn: Faz
     Test\Code:
         documentation: test
         name:
@@ -120,16 +119,16 @@ structures:
                 visibility: protected
                 type:
                     namespace: Test
-                    alias: Shorthand
-                    name: Code
-                    fqn: Test\Code
+                    alias: Bar
+                    name: Bar
+                    fqn: Test\Bar
                 value: tank
                 parameters:
                     abc:
                         documentation: testing
                         type:
-                            namespace: Test
-                            alias: Shorthand
-                            name: Code
-                            fqn: Test\Code
+                            namespace: Code
+                            alias: Table
+                            name: Table
+                            fqn: Code\Table
                         value: done
