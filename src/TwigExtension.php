@@ -156,7 +156,7 @@ class TwigExtension extends AbstractExtension {
    * @return string
    *   The indented text.
    */
-  public function doIndent(string $text, int $amount = 2, int $levels = 1, bool $ignoreFirst = TRUE): string {
+  public function doIndent(string $text, int $amount = 2, int $levels = 1, bool $ignoreFirst = FALSE): string {
     $options = [
       'spaces' => $amount,
       'levels' => $levels,
@@ -180,7 +180,7 @@ class TwigExtension extends AbstractExtension {
    * @return string
    *   The outdented text.
    */
-  public function doOutdent(string $text, int $amount = 2, int $levels = 1, bool $ignoreFirst = TRUE): string {
+  public function doOutdent(string $text, int $amount = 2, int $levels = 1, bool $ignoreFirst = FALSE): string {
     $options = [
       'spaces' => $amount,
       'levels' => $levels,
