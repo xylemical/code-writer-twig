@@ -50,6 +50,7 @@ class TwigExtension extends AbstractExtension {
       new TwigFilter('fqn', [$this, 'doFullyQualifiedName']),
       new TwigFilter('name', [$this, 'doName']),
       new TwigFilter('indent', [$this, 'doIndent']),
+      new TwigFilter('outdent', [$this, 'doOutdent']),
       new TwigFilter('constants', [$this, 'doConstants']),
       new TwigFilter('properties', [$this, 'doProperties']),
       new TwigFilter('methods', [$this, 'doMethods']),
@@ -147,12 +148,45 @@ class TwigExtension extends AbstractExtension {
    *   The text to indent.
    * @param int $amount
    *   The amount to indent.
+   * @param int $levels
+   *   The number of levels to indent.
+   * @param bool $ignoreFirst
+   *   To ignore the first line on indent.
    *
    * @return string
    *   The indented text.
    */
-  public function doIndent(string $text, int $amount = 2): string {
-    return Indenter::defix(Indenter::indent($text, $amount), $amount);
+  public function doIndent(string $text, int $amount = 2, int $levels = 1, bool $ignoreFirst = TRUE): string {
+    $options = [
+      'spaces' => $amount,
+      'levels' => $levels,
+      'ignoreFirst' => $ignoreFirst,
+    ];
+    return Indenter::indent($text, $options);
+  }
+
+  /**
+   * Outdents text by amount.
+   *
+   * @param string $text
+   *   The text to outdent.
+   * @param int $amount
+   *   The amount to outdent.
+   * @param int $levels
+   *   The levels to outdent.
+   * @param bool $ignoreFirst
+   *   To ignore first line on outdent.
+   *
+   * @return string
+   *   The outdented text.
+   */
+  public function doOutdent(string $text, int $amount = 2, int $levels = 1, bool $ignoreFirst = TRUE): string {
+    $options = [
+      'spaces' => $amount,
+      'levels' => $levels,
+      'ignoreFirst' => $ignoreFirst,
+    ];
+    return Indenter::outdent($text, $options);
   }
 
   /**
